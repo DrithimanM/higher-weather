@@ -1,0 +1,17 @@
+{
+  "name": "Higher Weather",
+  "short_name": "Higher Weather",
+  "description": "A beautifully clear personal weather display.",
+  "start_url": "./HigherWeather.html",
+  "display": "standalone",
+  "background_color": "#f5f5f7",
+  "theme_color": "#113f73",
+  "icons": [
+    {
+      "src": "logo-nav-visible.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
