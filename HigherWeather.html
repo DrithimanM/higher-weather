@@ -559,7 +559,7 @@ const localWeekRender=renderLocalWeather;renderLocalWeather=function(){localWeek
     const open = panel.classList.toggle('details-open');
     event.currentTarget.setAttribute('aria-expanded', String(open));
   });
-  document.querySelector('#radar-play').addEventListener('click', () => {
+  document.querySelector('#radar-play').addEventListener('click', (event) => {
     if (hwTimer) {
       window.clearInterval(hwTimer); hwTimer = null;
       event.currentTarget.textContent = '▶';
@@ -576,10 +576,14 @@ const localWeekRender=renderLocalWeather;renderLocalWeather=function(){localWeek
     const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${place.latitude}&longitude=${place.longitude}&current=${currentFields}&hourly=${hourlyFields}&daily=${dailyFields}&forecast_hours=24&forecast_days=7&timezone=auto`;
     const airUrl = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${place.latitude}&longitude=${place.longitude}&current=us_aqi,pm2_5,pm10,ozone`;
     try {
-      const [weatherResponse, airResponse] = await Promise.all([fetch(weatherUrl), fetch(airUrl)]);
+      const [weatherResult, airResult] = await Promise.allSettled([fetch(weatherUrl), fetch(airUrl)]);
+      if (weatherResult.status !== 'fulfilled') throw weatherResult.reason;
+      const weatherResponse = weatherResult.value;
       if (!weatherResponse.ok) throw new Error('Forecast unavailable');
       localForecast = await weatherResponse.json();
-      hwAirQuality = airResponse.ok ? (await airResponse.json()).current : null;
+      hwAirQuality = airResult.status === 'fulfilled' && airResult.value.ok
+        ? (await airResult.value.json()).current
+        : null;
       renderLocalWeather();
       renderHigherWeather();
       initialiseQuietRadar(place);
