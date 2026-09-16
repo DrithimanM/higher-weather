@@ -1,6 +1,7 @@
-const CACHE_NAME = 'higher-weather-shell-v1';
+const CACHE_NAME = 'higher-weather-shell-v2';
 const APP_SHELL = [
   './',
+  './index.html',
   './HigherWeather.html',
   './manifest.webmanifest',
   './logo.png',
