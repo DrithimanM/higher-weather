@@ -1,4 +1,4 @@
-const CACHE_NAME = 'higher-weather-shell-v4';
+const CACHE_NAME = 'higher-weather-shell-v5';
 const APP_SHELL = [
   './',
   './index.html',
@@ -7,7 +7,10 @@ const APP_SHELL = [
   './higher-weather.js',
   './manifest.webmanifest',
   './logo.png',
-  './logo-nav-visible.png'
+  './logo-nav-visible.png',
+  './app-icon-192.png',
+  './app-icon-512.png',
+  './app-icon-maskable-512.png'
 ];
 
 self.addEventListener('install', (event) => {
