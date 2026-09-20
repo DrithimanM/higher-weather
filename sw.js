@@ -35,7 +35,6 @@ self.addEventListener('fetch', (event) => {
   const request = event.request;
   const url = new URL(request.url);
 
-  // Weather, air-quality, city, and news requests remain live network requests.
   if (request.method !== 'GET' || url.origin !== self.location.origin) return;
 
   event.respondWith(

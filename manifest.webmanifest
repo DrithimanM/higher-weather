@@ -1,7 +1,7 @@
 {
   "name": "Higher Weather",
   "short_name": "Higher Weather",
-  "description": "A beautifully clear personal weather display.",
+  "description": "Personal weather dashboard.",
   "id": "./HigherWeather.html",
   "start_url": "./HigherWeather.html",
   "display": "standalone",

@@ -1,6 +1,6 @@
 # Higher Weather
 
-Your private, personal weather display for the kitchen tablet, phone, and laptop.
+Personal weather for your kitchen tablet, phone, and laptop.
 
 ## Use it on your devices
 
@@ -8,7 +8,7 @@ Serve this folder from a secure local URL, then open `HigherWeather.html` in eac
 
 The app shell and logo remain available after the first successful load, even if the device temporarily loses internet. Live weather, air quality, location names, and Weather Journal stories still need an internet connection.
 
-> Opening the file directly with `file://` is fine for viewing, but browsers cannot install it as a PWA or run its offline cache that way. A private HTTPS URL is the best choice for tablets and phones because browser location access is more reliable there.
+> Opening the file directly with `file://` is fine for viewing, but browsers cannot install it as a PWA or run its offline cache that way. Use HTTPS for installation and reliable location access.
 
 ## Keep it safe
 
